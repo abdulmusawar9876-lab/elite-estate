@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Estates | Luxury Real Estate</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <a href="#" class="logo">ELITE<span>ESTATES.</span></a>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#properties">Properties</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button id="themeBtn">🌙</button>
+        <a href="#contact" class="nav-btn">Get Started</a>
+    </nav>
+</header>
+<!-- SMART BACK BUTTON -->
+
+<button id="smartBackBtn" class="smart-back-button" onclick="smartGoBack()">
+    ← Back
+</button>
+<main>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="tagline">FIND YOUR DREAM HOME</p>
+        <h1>Discover A Place<br>You'll <span>Love To Live.</span></h1>
+        <p class="hero-text">
+            Find your perfect property with Elite Estates.
+            Explore beautiful homes and luxury apartments.
+        </p>
+
+        <a href="#properties" class="primary-btn">Explore Properties →</a>
+    </div>
+
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200"
+        alt="Luxury modern house">
+    </div>
+</section>
+
+<section class="search-section">
+    <h2>Find Your Perfect Property</h2>
+
+    <div class="search-box">
+        <input type="text" id="location" placeholder="Enter location">
+        
+        <select id="type">
+            <option value="all">Property Type</option>
+            <option value="House">House</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Villa">Villa</option>
+        </select>
+
+        <select id="price">
+            <option value="all">Maximum Price</option>
+            <option value="500000">Under $500,000</option>
+            <option value="1000000">Under $1,000,000</option>
+        </select>
+
+        <button onclick="searchProperties()">Search</button>
+    </div>
+</section>
+
+<section class="properties section" id="properties">
+
+    <div class="section-heading">
+        <p>OUR COLLECTION</p>
+        <h2>Featured Properties</h2>
+        <span>Discover our handpicked luxury properties.</span>
+    </div>
+
+    <div class="property-grid" id="propertyGrid">
+
+        <p id="propertyLoading">Loading properties...</p>
+
+    </div>
+
+</section>
+<section class="about section" id="about">
+    <div>
+        <p class="tagline">ABOUT ELITE ESTATES</p>
+        <h2>Making Your Dream Home A Reality.</h2>
+        <p>
+            Elite Estates is dedicated to helping people find beautiful
+            properties. We believe every person deserves a perfect place
+            to call home.
+        </p>
+        <a href="#contact" class="primary-btn">Contact Us →</a>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=900" alt="Beautiful property">
+</section>
+
+<section class="contact section" id="contact">
+    <div class="section-heading">
+        <p>GET IN TOUCH</p>
+        <h2>Let's Find Your Dream Home</h2>
+    </div>
+
+    <form id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Subject" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message →</button>
+    </form>
+</section>
+
+</main>
+
+<footer>
+    <a href="#" class="logo">ELITE<span>ESTATES.</span></a>
+    <p>© 2026 Elite Estates. All Rights Reserved.</p>
+</footer>
+
+<!-- PROPERTY DETAILS MODAL -->
+
+<div id="detailsModal" class="modal">
+
+    <div class="modal-content">
+
+        <button class="close" onclick="closeDetails()">×</button>
+
+        <h2 id="detailName"></h2>
+
+        <h3 id="detailPrice"></h3>
+
+        <p id="detailLocation"></p>
+
+        <!-- PROPERTY IMAGE GALLERY -->
+        <div id="detailGallery" class="detail-gallery"></div>
+
+        <!-- PROPERTY INFORMATION -->
+        <div class="property-features">
+
+            <div>
+                🛏️ Bedrooms:
+                <strong id="detailBedrooms"></strong>
+            </div>
+
+            <div>
+                🚿 Bathrooms:
+                <strong id="detailBathrooms"></strong>
+            </div>
+
+            <div>
+                📐 Area:
+                <strong id="detailArea"></strong>
+            </div>
+
+            <div>
+                🏠 Type:
+                <strong id="detailType"></strong>
+            </div>
+
+        </div>
+
+        <h3>Property Description</h3>
+
+        <p id="detailDescription"></p>
+
+        <a href="#contact" class="primary-btn"
+           onclick="closeDetails()">
+            Contact Agent
+        </a>
+
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

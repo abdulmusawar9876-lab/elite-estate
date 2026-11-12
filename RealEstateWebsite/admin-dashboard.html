@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Estates | Admin Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <header>
+        <h1>Elite Estates</h1>
+        <button id="logoutBtn">Logout</button>
+    </header>
+
+    <main class="dashboard-container">
+
+        <h2>Admin Dashboard</h2>
+        <p>Welcome to Elite Estates Admin Panel</p>
+
+        <!-- Statistics -->
+        <div class="stats-container">
+
+            <div class="stat-card">
+                <h3>Total Inquiries</h3>
+                <p id="totalInquiries">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Latest Inquiries</h3>
+                <p id="latestInquiries">0</p>
+            </div>
+
+        </div>
+
+        <!-- Add Property Section -->
+        <section class="property-section">
+
+            <h2>Add New Property</h2>
+
+            <form id="propertyForm">
+
+                <label>Property Title</label>
+                <input
+                    type="text"
+                    id="propertyTitle"
+                    placeholder="Enter property title"
+                    required
+                >
+
+                <label>Price</label>
+                <input
+                    type="number"
+                    id="propertyPrice"
+                    placeholder="Enter price"
+                    min="1"
+                    required
+                >
+
+                <label>Location</label>
+                <input
+                    type="text"
+                    id="propertyLocation"
+                    placeholder="Enter location"
+                    required
+                >
+
+                <label>Property Type</label>
+                <select id="propertyType" required>
+                    <option value="">Select Type</option>
+                    <option value="House">House</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Plot">Plot</option>
+                    <option value="Commercial">Commercial</option>
+                    <option value="Villa">Villa</option>
+                </select>
+
+                <label>Bedrooms</label>
+                <input
+                    type="number"
+                    id="propertyBedrooms"
+                    min="0"
+                    value="0"
+                >
+
+                <label>Bathrooms</label>
+                <input
+                    type="number"
+                    id="propertyBathrooms"
+                    min="0"
+                    value="0"
+                >
+
+                <label>Area</label>
+                <input
+                    type="text"
+                    id="propertyArea"
+                    placeholder="Example: 5 Marla"
+                >
+
+                <label>Description</label>
+                <textarea
+                    id="propertyDescription"
+                    placeholder="Enter property details"
+                    rows="5"
+                ></textarea>
+
+                <label>Property Images (Minimum 2)</label>
+                <input
+                    type="file"
+                    id="propertyImages"
+                    accept="image/*"
+                    multiple
+                    required
+                >
+
+                <small>You can select multiple images at once.</small>
+
+                <button type="submit" id="publishPropertyBtn">
+                    Publish Property
+                </button>
+
+                <p id="propertyMessage"></p>
+
+            </form>
+
+        </section>
+<!-- MANAGE PROPERTIES -->
+
+<section class="inquiries-section">
+
+    <h2>Manage Properties</h2>
+
+    <div class="table-container">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Location</th>
+                    <th>Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="propertiesTable">
+                <tr>
+                    <td colspan="6">Loading properties...</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</section>
+        <!-- Customer Inquiries -->
+        <section class="inquiries-section">
+
+            <h2>Customer Inquiries</h2>
+
+            <div class="table-container">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="inquiriesTable">
+                        <tr>
+                            <td colspan="5">Loading inquiries...</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="admin-dashboard.js"></script>
+
+</body>
+</html>
